@@ -1,0 +1,12 @@
+DB
+customer info
+tariff info
+
+2 tariff domestic and commercial
+unit ke hisab se bill 100 ke upar alag 200 ke upar lag
+
+meter info last month this month
+
+calculate bill - 18% gst (value of gst not hardcode, can be variable)
+
+generate pdf of statement

@@ -16,8 +16,7 @@ public class Main  {
         this.t1 = t1;
     }
     public static void main(String[] args) {
-        Random rn = new Random();
-        Scanner sc = new Scanner(System.in);
+        // Objects
         CustomerInfo c1 = new CustomerInfo();
         MeterInfo m1 = new MeterInfo();
         TariffInfo t1 = new TariffInfo();
@@ -26,27 +25,14 @@ public class Main  {
 
         System.out.println("Hello, What would you like to do?");
         System.out.println("1. Register user");
-        System.out.println("Enter name:\t");
-        c1.setName(sc.nextLine());
 
-        System.out.println("Enter password:\t");
-        c1.setPassword(sc.nextLine());
+        // Register User
+        c1.registerUser();
 
-        System.out.println("Enter email:\t");
-        c1.setEmail(sc.nextLine());
-
-        System.out.println("Enter address:\t");
-        c1.setAddress(sc.nextLine());
-
-        c1.setMeterId(rn.nextInt(1000, 9999));
-        System.out.printf("Your unique meter ID is: %d\n", c1.getMeterId());
-
+        // Take current and last month readings
         m1.inputReading();
 
+        // Print Electricity Bill
         System.out.println(sg.statement());
-
-
-
-
     }
 }

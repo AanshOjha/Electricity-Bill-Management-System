@@ -6,21 +6,52 @@ import com.AanshProject.MeterInfo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class DataInserter {
+public class DBQueries {
     private CustomerInfo c1;
     private MeterInfo m1;
     private CalculateBill cb1;
+    public int foundMeterId;
 
-    public DataInserter(CustomerInfo c1, MeterInfo m1, CalculateBill cb1) {
+    public DBQueries(CustomerInfo c1, MeterInfo m1, CalculateBill cb1) {
         this.c1 = c1;
         this.cb1 = cb1;
         this.m1 = m1;
     }
 
-    public void insertData(int meterId, String readingDate, double currentReading, double lastReading,
-                                  double unitsConsumed, double billAmount) throws SQLException {
+    public void getMeterId(int meterIdCheck) throws SQLException{
+        String sql = "SELECT ci.meter_id, name, password, address, email, "
+        + "reading_date, last_reading, current_reading, unit_consumed, bill "
+        + "from customer_info ci INNER JOIN meter_reading mr ON ci.meter_id = mr.meter_id "
+        + "where mr.meter_id = ?;";
+
+        try (
+             Connection conn = DatabaseConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)
+        ) {
+            // Assuming m1.meterIdCheck is the value you want to use in the WHERE clause
+            stmt.setInt(1, meterIdCheck);
+
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    // Retrieve the meter ID from the first column of the first row
+                    foundMeterId = rs.getInt(1);
+
+                    // Now you can use the foundMeterId variable
+                    System.out.println("Found Meter ID: " + foundMeterId);
+                } else {
+                    System.out.println("Meter ID not found for the specified condition.");
+                }
+            } catch (SQLException e) {
+                System.err.println("Error inserting data: " + e.getMessage());
+                throw e;
+            }
+        }
+    }
+
+    public void insertData() throws SQLException {
         String sql = "INSERT INTO meter_reading (meter_id, reading_date, current_reading, last_reading, " +
                 "unit_consumed, bill) VALUES (?, ?, ?, ?, ?, ?)";
 

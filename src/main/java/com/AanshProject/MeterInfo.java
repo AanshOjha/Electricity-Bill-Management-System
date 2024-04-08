@@ -1,11 +1,14 @@
 package com.AanshProject;
 
+import com.AanshProject.dbConnect.DBQueries;
+
 import java.util.Scanner;
 
 public class MeterInfo {
     private String readingDate;
     private double lastReading;
     private double currentReading;
+    public int meterIdCheck;
 
     public MeterInfo(CustomerInfo c1) {
         this.c1 = c1;
@@ -15,10 +18,6 @@ public class MeterInfo {
 
     public void inputReading() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter meter ID to confirm you");
-        c1.setMeterId(sc.nextInt());
-
-
         System.out.println("Enter current reading");
         setCurrentReading(sc.nextDouble());
         System.out.println("Enter last reading");

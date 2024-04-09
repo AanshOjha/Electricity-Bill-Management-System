@@ -1,14 +1,12 @@
 package com.AanshProject;
 
-import com.AanshProject.dbConnect.DBQueries;
-
+import java.sql.Date;
 import java.util.Scanner;
 
 public class MeterInfo {
-    private String readingDate;
+    private java.sql.Date readingDate;
     private double lastReading;
     private double currentReading;
-    public int meterIdCheck;
 
     public MeterInfo(CustomerInfo c1) {
         this.c1 = c1;
@@ -28,12 +26,12 @@ public class MeterInfo {
 
     }
 
-    public String getReadingDate() {
+    public Date getReadingDate() {
         return readingDate;
     }
 
     public void setReadingDate(String readingDate) {
-        this.readingDate = readingDate;
+        this.readingDate = Date.valueOf(readingDate);
     }
 
     public double getLastReading() {

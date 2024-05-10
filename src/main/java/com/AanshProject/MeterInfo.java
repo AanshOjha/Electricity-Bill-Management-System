@@ -19,7 +19,6 @@ public class MeterInfo {
         System.out.println("Enter current reading");
         setCurrentReading(sc.nextDouble());
         System.out.println("Enter last reading");
-        sc.nextLine();
         setLastReading(sc.nextDouble());
         System.out.println("Enter Reading Date");
         setReadingDate(sc.next());

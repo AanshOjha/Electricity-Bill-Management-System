@@ -16,6 +16,8 @@ public class App  {
         DBQueries db1 = new DBQueries(c1, m1, cb1);
         PDFGenerator pdf = new PDFGenerator(c1, m1, cb1, t1);
 
+        db1.createResources();
+
         System.out.println("Hello, What would you like to do?");
         int input;
         while (true) {

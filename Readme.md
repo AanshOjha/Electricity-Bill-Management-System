@@ -17,3 +17,4 @@ git clone https://github.com/AanshOjha/Electricity-Bill-Management-System.git
 
 2. Install MySQL if not already installed.
 3. Install dependencies listed in `pom.xml`
+4. Enjoy creating Bills!

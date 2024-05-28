@@ -1,10 +1,10 @@
 package com.AanshProject;
 
-import com.AanshProject.dbConnect.DBQueries;
-
 import java.io.FileNotFoundException;
 import java.sql.SQLException;
 import java.util.Scanner;
+
+import com.AanshProject.dbConnect.DBQueries;
 
 public class App  {
     public static void main(String[] args) throws SQLException, FileNotFoundException {

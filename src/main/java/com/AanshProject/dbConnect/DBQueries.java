@@ -1,10 +1,14 @@
 package com.AanshProject.dbConnect;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import com.AanshProject.CalculateBill;
 import com.AanshProject.CustomerInfo;
 import com.AanshProject.MeterInfo;
-
-import java.sql.*;
 
 public class DBQueries {
     private CustomerInfo c1;
